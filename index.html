@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sajjad Salemi. Web Developer, 3D Character Modeler & TD|Rigger." />
-    <title>Sajjad Salemi</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <style>
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Sajjad Salemi. Web Developer, 3D Character Modeler & TD|Rigger." />
+<title>Sajjad Salemi</title>
+<script src="matrixrain.js"></script>
+<style>
 
 	  
       @font-face {
@@ -18,7 +16,7 @@
         src: url("//db.onlinewebfonts.com/t/2545d122b16126676225a5b52283ae23.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/2545d122b16126676225a5b52283ae23.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/2545d122b16126676225a5b52283ae23.woff") format("woff"), url("//db.onlinewebfonts.com/t/2545d122b16126676225a5b52283ae23.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/2545d122b16126676225a5b52283ae23.svg#vcr_osd_monoregular") format("svg");
         font-weight: normal;
         font-style: normal;
-		font-display: swap;
+        font-display: swap;
       }
 
       :root {
@@ -39,30 +37,99 @@
       * {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        margin: 0;
+        overflow: hidden;
       }
+	  
+	  body{
+	    color:var(--nc-tx-1);
+        background:var(--nc-bg-1);
+	  }
 
       body, h1, p, a {
         text-transform: uppercase;
-        font-size: 1em;
+        font-family: "vcr_osd_monoregular", monospace;
+        font-size: 1.1em;
         font-weight: normal;
-		letter-spacing: 0.04em;
+        letter-spacing: 0.04em;
+        color:var(--nc-tx-1);
       }
+	  
+	  a, a:active{
+        cursor:pointer;
+        color:var(--nc-lk-1);
+        text-decoration:none;
+	  }
+	  
+	 a:hover{
+        color:var(--nc-lk-2);
+	  }
 
       h1 {
         border: none;
-		margin: 0;
+        margin: 0;
+        color:var(--nc-lk-1);
+        font-weight:bold;
+        font-size:1.4em;
       }
+	  
+      p{
+        padding:10px 0;
+	  }
+	  .wrapper{
+        position:absolute;
+        top:38%;
+        width:100%;
+        margin:0;
+	  }
+	  
+	  .container{
+        width:310px;
+        margin:0 auto!important;
+        text-shadow:3px 3px 3px var(--nc-bg-1);
+        background-color: rgba(0, 255, 0, 0.08);
+        padding:30px 60px;
+		border-radius:3px;
+	  }
 	  
 	  
     </style>
-  </head>
-  <body>
-    <h1>Sajjad Salemi</h1>
-    <p>Web Developer, 3D Character Modeler & TD|Rigger.</p>
-    <nav>
-      <a href="https://github.com/thesalemi">GitHub</a> /
-      <a href="https://twitter.com/thesalemi">Twitter</a> /
-      <a href="https://linkedin.com/in/thesalemi">LinkedIn</a>
-    </nav>
-  </body>
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="container">
+        <h1>Sajjad Salemi</h1>
+        <p>Web Developer, <br>3D Character Modeler, <br>Technical Director, Rigger.</p>
+        <nav>
+        	<a href="https://github.com/thesalemi">GitHub</a> /
+        	<a href="https://twitter.com/thesalemi">Twitter</a> /
+        	<a href="https://linkedin.com/in/thesalemi">LinkedIn</a>
+        </nav>
+	</div>
+</div>
+<canvas id="canvas"></canvas>
+        <script>
+        	const matrixRain = new MatrixRain(
+                element = document.getElementById("canvas"),
+                width = window.innerWidth,
+                height = window.innerHeight,
+                charList = [
+                	'0','1','2','3','4','5','6','7','8','9',
+                	'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+                	'+','-','*','=','<','>',':','.',
+                	'ﾊ','ﾐ','ﾋ','ｰ','ｳ','ｼ','ﾅ','ﾓ','ﾆ','ｻ','ﾜ','ﾂ','ｵ','ﾘ','ｱ','ﾎ','ﾃ','ﾏ','ｹ','ﾒ','ｴ','ｶ','ｷ','ﾑ','ﾕ','ﾗ','ｾ','ﾈ','ｽ','ﾀ','ﾇ','ﾍ'
+                ],
+                red = 0, green = 255, blue = 0,
+                randomColors = false,
+                flowRate = 1,
+                fps = 15,
+        	);
+        	window.addEventListener("resize", () => {
+                matrixRain.setCanvasDimensions(window.innerWidth, window.innerHeight);
+        	});
+        </script>
+
+
+</body>
 </html>
